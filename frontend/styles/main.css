@@ -57,8 +57,12 @@ table {
 
 /***** HooKnows Stylesheet *****/
 
+* {
+  box-sizing: border-box;
+}  
+
 :root {
-  --primary: #060Ce9;
+  --primary: #11149a;
   --secondary: #ffcc00e3;
   --tertiary: #ff3300;
 }
@@ -70,7 +74,7 @@ body {
 
 .hk-content {
 	width: 100%;
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -87,23 +91,32 @@ body {
 	.hk-grid {
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(4, 1fr);
+		grid-gap: 50px 50px;
 	}
 }
 
-.hk-btn {
+.hk-hover-btn {
 	height: 150px;
 	width: 150px;
-	border: 2px solid white;
-	border-radius: 5px;
-	color: white;
 	background-color: var(--secondary);
-	transition: box-shadow 0.1s ease-in-out;
+	border: none;
+	border-radius: 10px; }
+
+	.hk-hover-btn > div {
+		height: 100%;
+		width: 100%;
+		border: none;
+		color: var(--secondary);
+		background-color: var(--primary);
+		border: 5px solid var(--secondary);
+		border-radius: 10px;
+		transform: translateY(-2px);
+		transition: transform 0.2s; }
+
+	.hk-hover-btn > div:hover {
+	transform: translateY(-6px);
 }
 
-.hk-btn:hover {
-	box-shadow: -5px 5px 0 2px black;
-}
-
-.far {
-	font-weight: 900;
+a.no-under {
+	text-decoration: none;
 }
