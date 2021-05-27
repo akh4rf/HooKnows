@@ -95,6 +95,11 @@ body {
 	}
 }
 
+/* 
+	Button that raises up when hovered over.
+	Inspiration taken from https://www.joshwcomeau.com/animation/3d-button/.
+*/
+
 .hk-hover-btn {
 	height: 150px;
 	width: 150px;
