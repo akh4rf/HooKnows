@@ -1,0 +1,17 @@
+.game-list-item {
+    height: 50px;
+    width: 100%;
+    color: var(--secondary);
+    background-color: var(--primary);
+    border: 5px solid var(--secondary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.game-list-item:hover {
+    cursor: pointer;
+    color: var(--primary);
+    background-color: var(--secondary);
+}

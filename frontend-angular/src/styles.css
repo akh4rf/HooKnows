@@ -68,7 +68,6 @@ table {
 }
 
 body {
-	background-color: var(--primary);
 	font-family: 'Allerta', sans-serif;
 }
 
@@ -78,50 +77,38 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: var(--primary);
 }
 
-.hk-grid {
+[class^=hk-grid-] {
 	display: grid;
 	grid-gap: 75px 75px;
+}
+
+.hk-grid-1x2 {
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+}
+
+.hk-grid-2x2 {
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 1fr);
 }
 
 @media only screen and (max-width: 600px) {
-	.hk-grid {
+	[class^=hk-grid-] {
+		grid-gap: 50px 50px;
+	}
+	.hk-grid-1x2 {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(2, 1fr);
+	}
+	.hk-grid-2x2 {
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(4, 1fr);
-		grid-gap: 50px 50px;
 	}
 }
 
-/* 
-	Button that raises up when hovered over.
-	Inspiration taken from https://www.joshwcomeau.com/animation/3d-button/.
-*/
-
-.hk-hover-btn {
-	height: 150px;
-	width: 150px;
-	background-color: var(--secondary);
-	border: none;
-	border-radius: 10px; }
-
-	.hk-hover-btn > div {
-		height: 100%;
-		width: 100%;
-		border: none;
-		color: var(--secondary);
-		background-color: var(--primary);
-		border: 5px solid var(--secondary);
-		border-radius: 10px;
-		transform: translateY(-2px);
-		transition: transform 0.2s; }
-
-	.hk-hover-btn > div:hover {
-	transform: translateY(-6px);
-}
-
-a.no-under {
+.no-under {
 	text-decoration: none;
 }

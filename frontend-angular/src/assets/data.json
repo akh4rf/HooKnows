@@ -1,0 +1,17 @@
+[
+    {
+        "username": "akh4rf",
+        "code": "ABCDEF",
+        "players": "0"
+    },
+    {
+        "username": "john_doe",
+        "code": "GHIJKL",
+        "players": "1"
+    },
+    {
+        "username": "jane_doe",
+        "code": "MNOPQR",
+        "players": "2"
+    }
+]
