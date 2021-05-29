@@ -1,34 +1,53 @@
 <div class="hk-content">
-  <div style="width: 75%; padding: 100px 0">
+  <div style="width: 75%; padding: 50px 0">
     <div style="text-align: center; color: var(--secondary); font-size: 48px">
       <p>Available Games</p>
     </div>
 
-    <div style="margin-top: 75px">
-      <div
-        style="
-          height: 50px;
-          width: 100%;
-          color: var(--secondary);
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-        "
-      >
-        <div style="width: 40%; text-align: center">Username</div>
-        <div style="width: 20%; text-align: center">Code</div>
-        <div style="width: 40%; text-align: center">Players</div>
+    <form action="" class="hk-game-search-form">
+      <input
+        type="text"
+        maxlength="6"
+        placeholder="Room Code"
+        autofocus="autofocus"
+      />
+      <button type="submit" class="hk-btn-hover no-under">
+        <div>
+          <div
+            style="
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: column;
+            "
+          >
+            <p style="font-size: 20px">
+              <span><i class="fas fa-search"></i></span> Search
+            </p>
+          </div>
+        </div>
+      </button>
+    </form>
+
+    <div style="margin-top: 50px">
+      <div class="hk-join-game-header">
+        <div>Host</div>
+        <div>Code</div>
+        <div>Players</div>
       </div>
-      <div *ngFor="let game of games">
-        <game-list-item
-          username="{{ game.username }}"
-          code="{{ game.code }}"
-          players="{{ game.players }}"
-        ></game-list-item>
+      <div id="gameList">
+        <div *ngFor="let game of games">
+          <game-list-item
+            username="{{ game.username }}"
+            code="{{ game.code }}"
+            players="{{ game.players }}"
+          ></game-list-item>
+        </div>
       </div>
     </div>
 
-    <div style="margin-top: 50px">
+    <div>
       <main-button height="75px" width="150px" dest="/">
         <p style="font-size: 20px">
           <span><i class="fas fa-times"></i></span> Cancel
