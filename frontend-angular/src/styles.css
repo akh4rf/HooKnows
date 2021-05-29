@@ -3,48 +3,129 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /***** Font Awesome *****/
@@ -53,13 +134,13 @@ table {
 
 /***** Allerta Font *****/
 
-@import url('https://fonts.googleapis.com/css2?family=Allerta&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Allerta&display=swap");
 
 /***** HooKnows Stylesheet *****/
 
 * {
   box-sizing: border-box;
-}  
+}
 
 :root {
   --primary: #11149a;
@@ -68,47 +149,71 @@ table {
 }
 
 body {
-	font-family: 'Allerta', sans-serif;
+  font-family: "Allerta", sans-serif;
 }
 
 .hk-content {
-	width: 100%;
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: var(--primary);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
 }
 
-[class^=hk-grid-] {
-	display: grid;
-	grid-gap: 75px 75px;
+[class^="hk-grid-"] {
+  display: grid;
+  grid-gap: 75px 75px;
 }
 
 .hk-grid-1x2 {
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
 }
 
 .hk-grid-2x2 {
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 
 @media only screen and (max-width: 600px) {
-	[class^=hk-grid-] {
-		grid-gap: 50px 50px;
-	}
-	.hk-grid-1x2 {
-		grid-template-columns: 1fr;
-		grid-template-rows: repeat(2, 1fr);
-	}
-	.hk-grid-2x2 {
-		grid-template-columns: 1fr;
-		grid-template-rows: repeat(4, 1fr);
-	}
+  [class^="hk-grid-"] {
+    grid-gap: 50px 50px;
+  }
+  .hk-grid-1x2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .hk-grid-2x2 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
 }
 
 .no-under {
-	text-decoration: none;
+  text-decoration: none;
+}
+
+/* 
+	Button that raises up when hovered over.
+	Inspiration taken from https://www.joshwcomeau.com/animation/3d-button/.
+*/
+
+.hk-btn-hover {
+  background-color: var(--secondary);
+  border-radius: 10px;
+}
+
+.hk-btn-hover > div {
+  height: 100%;
+  width: 100%;
+  color: var(--secondary);
+  background-color: var(--primary);
+  border: 5px solid var(--secondary);
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.hk-btn-hover > div:hover {
+  transform: translateY(-10px);
 }
