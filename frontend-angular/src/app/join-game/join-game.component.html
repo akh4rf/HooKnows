@@ -4,33 +4,21 @@
       <p>Available Games</p>
     </div>
 
-    <form action="" class="hk-game-search-form">
+    <form action="" class="hk-section-row hk-game-search-form">
       <input
         type="text"
         maxlength="6"
         placeholder="Room Code"
         autofocus="autofocus"
       />
-      <button type="submit" class="hk-btn-hover no-under">
-        <div>
-          <div
-            style="
-              height: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              flex-direction: column;
-            "
-          >
-            <p style="font-size: 20px">
-              <span><i class="fas fa-search"></i></span> Search
-            </p>
-          </div>
-        </div>
-      </button>
+      <main-button-form height="50px" width="120px">
+        <p style="font-size: 20px">
+          <span><i class="fas fa-search"></i></span> Search
+        </p>
+      </main-button-form>
     </form>
 
-    <div style="margin-top: 50px">
+    <div class="hk-section-row">
       <div class="hk-join-game-header">
         <div>Host</div>
         <div>Code</div>
@@ -47,7 +35,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="hk-section-row">
       <main-button height="75px" width="150px" dest="/">
         <p style="font-size: 20px">
           <span><i class="fas fa-times"></i></span> Cancel

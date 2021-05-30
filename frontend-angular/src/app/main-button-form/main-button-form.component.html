@@ -1,0 +1,21 @@
+<div style="display: flex; justify-content: center" role="button">
+  <button
+    type="submit"
+    class="hk-btn-hover no-under"
+    style="height: {{ height }}; width: {{ width }}; padding: 0; border: 0; background: var(--secondary); cursor: pointer;"
+  >
+    <div>
+      <div
+        style="
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        "
+      >
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </button>
+</div>

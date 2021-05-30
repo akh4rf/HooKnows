@@ -1,0 +1,35 @@
+#hk-submit-category-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+#hk-submit-category-header > main-button {
+  order: 1;
+}
+
+#hk-submit-category-header > input {
+  order: 2;
+}
+
+#hk-submit-category-header > main-button-form {
+  order: 3;
+}
+
+@media only screen and (max-width: 750px) {
+  #hk-submit-category-header {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px 0;
+  }
+  #hk-submit-category-header > input {
+    order: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  #hk-submit-category-header > main-button {
+    order: 2;
+  }
+  #hk-submit-category-header > main-button-form {
+    order: 3;
+  }
+}

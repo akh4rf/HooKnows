@@ -6,7 +6,6 @@
   border: 5px solid var(--secondary);
   border-radius: 10px;
   align-items: center;
-  margin-bottom: 10px;
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
 }
@@ -28,6 +27,5 @@
     width: 160px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    margin-bottom: 50px;
   }
 }

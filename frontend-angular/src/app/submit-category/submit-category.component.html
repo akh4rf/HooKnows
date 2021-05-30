@@ -1,0 +1,41 @@
+<div class="hk-content">
+  <div style="width: 75%; padding: 50px 0">
+    <div style="text-align: center; color: var(--secondary); font-size: 48px">
+      <p>Submit a Category!</p>
+    </div>
+
+    <form action="">
+      <div class="hk-section-row" id="hk-submit-category-header">
+        <main-button height="50px" width="120px" dest="/">
+          <p style="font-size: 20px">
+            <span><i class="fas fa-times"></i></span> Cancel
+          </p>
+        </main-button>
+        <input
+          type="text"
+          placeholder="Category Name"
+          autofocus="autofocus"
+          style="font-size: 20px; text-align: center"
+          (input)="handleCategoryNameChange()"
+          id="categoryField"
+        />
+        <main-button-form height="50px" width="120px">
+          <p style="font-size: 20px">
+            <span><i class="fas fa-check"></i></span> Submit
+          </p>
+        </main-button-form>
+      </div>
+
+      <div class="hk-section-row" id="hk-submit-category-content">
+        <flip-card-modal
+          height="200px"
+          width="300px"
+          value="200"
+          category="World Capitals"
+          answer="What is Paris?"
+          >This is the capital of France.</flip-card-modal
+        >
+      </div>
+    </form>
+  </div>
+</div>

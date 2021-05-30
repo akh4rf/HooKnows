@@ -1,0 +1,83 @@
+<!-- Modal How-To From https://www.w3schools.com/howto/howto_css_modals.asp -->
+<!-- Flip Card How-To From https://www.w3schools.com/howto/howto_css_flip_card.asp -->
+
+<!-- Trigger/Open The Modal -->
+<div id="card{{ value }}" type="button">
+  <div
+    class="flip-card"
+    id="flipCard{{ value }}"
+    style="height: {{ height }}; width: {{ width }};"
+    (click)="handleButtonClick(value)"
+  >
+    <div class="flip-card-inner">
+      <div class="flip-card-front flex-column">
+        <div style="flex-grow: 1">
+          <div>
+            <div class="category"></div>
+          </div>
+        </div>
+        <div style="flex-grow: 4">
+          <div>
+            <ng-content></ng-content>
+          </div>
+        </div>
+        <div style="flex-grow: 1">
+          <div>
+            <div>${{ value }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card-back flex-column">
+        <div style="flex-grow: 1">
+          <div>
+            <div class="category"></div>
+          </div>
+        </div>
+        <div style="flex-grow: 4">
+          <div>
+            <div>{{ answer }}</div>
+          </div>
+        </div>
+        <div style="flex-grow: 1">
+          <div>
+            <div>
+              <span><i class="fas fa-pencil-alt"></i></span> Click to Edit
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div
+  (click)="handleModalClose(value, $event)"
+  id="flipModal{{ value }}"
+  class="modal"
+>
+  <!-- Modal content -->
+  <div class="modal-content" style="position: relative; font-size: 24px">
+    <div class="close">
+      <span (click)="handleSpanClose(value)" class="fas fa-times"></span>
+    </div>
+
+    <div class="flex-column">
+      <div style="flex-grow: 1">
+        <div>
+          <div class="category"></div>
+        </div>
+      </div>
+      <div style="flex-grow: 1">
+        <div>
+          <div class="category"></div>
+        </div>
+      </div>
+      <div style="flex-grow: 1">
+        <div>
+          <div class="category"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

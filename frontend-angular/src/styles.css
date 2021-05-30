@@ -217,3 +217,7 @@ body {
 .hk-btn-hover > div:hover {
   transform: translateY(-10px);
 }
+
+.hk-section-row {
+  margin-top: 50px;
+}

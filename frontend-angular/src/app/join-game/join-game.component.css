@@ -12,12 +12,15 @@
   text-align: center;
 }
 
-#gameList {
-  margin-bottom: 40px;
+#gameList > div {
+  margin-bottom: 10px;
+}
+
+#gameList > div:last-of-type {
+  margin-bottom: 0;
 }
 
 .hk-game-search-form {
-  margin-top: 50px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -29,15 +32,6 @@
   text-transform: uppercase;
   font-size: 30px;
   text-align: center;
-  height: 50px;
-}
-
-.hk-game-search-form > button {
-  padding: 0;
-  border: 0;
-  background: var(--secondary);
-  width: 110px;
-  cursor: pointer;
   height: 50px;
 }
 
@@ -62,5 +56,9 @@
 
   .hk-game-search-form > input {
     margin: 0 0 15px 0;
+  }
+
+  #gameList > div {
+    margin-bottom: 50px;
   }
 }

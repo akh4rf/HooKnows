@@ -9,6 +9,9 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HostGameComponent } from './host-game/host-game.component';
 import { JoinGameComponent } from './join-game/join-game.component';
 import { GameListItemComponent } from './game-list-item/game-list-item.component';
+import { SubmitCategoryComponent } from './submit-category/submit-category.component';
+import { MainButtonFormComponent } from './main-button-form/main-button-form.component';
+import { FlipCardModalComponent } from './flip-card-modal/flip-card-modal.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { GameListItemComponent } from './game-list-item/game-list-item.component
     MainMenuComponent,
     HostGameComponent,
     JoinGameComponent,
-    GameListItemComponent
+    GameListItemComponent,
+    SubmitCategoryComponent,
+    MainButtonFormComponent,
+    FlipCardModalComponent
   ],
   imports: [
     BrowserModule,
