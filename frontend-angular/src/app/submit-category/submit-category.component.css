@@ -15,6 +15,24 @@
   order: 3;
 }
 
+#hk-submit-category-content > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+flip-card-modal {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 850px) {
+  flip-card-modal {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 750px) {
   #hk-submit-category-header {
     grid-template-columns: repeat(2, 1fr);
