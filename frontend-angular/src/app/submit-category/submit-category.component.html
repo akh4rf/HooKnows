@@ -14,7 +14,7 @@
         <input
           type="text"
           placeholder="Category Name"
-          autofocus="autofocus"
+          autofocus
           style="font-size: 20px; text-align: center"
           (input)="handleCategoryNameChange()"
           id="categoryField"
@@ -27,14 +27,34 @@
       </div>
 
       <div class="hk-section-row" id="hk-submit-category-content">
-        <flip-card-modal
-          height="200px"
-          width="300px"
-          value="200"
-          category="World Capitals"
-          answer="What is Paris?"
-          >This is the capital of France.</flip-card-modal
-        >
+        <div>
+          <flip-card-modal
+            height="200px"
+            width="300px"
+            value="200"
+          ></flip-card-modal>
+          <flip-card-modal
+            height="200px"
+            width="300px"
+            value="400"
+          ></flip-card-modal>
+          <flip-card-modal
+            height="200px"
+            width="300px"
+            value="600"
+            style="width: 100%"
+          ></flip-card-modal>
+          <flip-card-modal
+            height="200px"
+            width="300px"
+            value="800"
+          ></flip-card-modal>
+          <flip-card-modal
+            height="200px"
+            width="300px"
+            value="1000"
+          ></flip-card-modal>
+        </div>
       </div>
     </form>
   </div>

@@ -2,7 +2,7 @@
 <!-- Flip Card How-To From https://www.w3schools.com/howto/howto_css_flip_card.asp -->
 
 <!-- Trigger/Open The Modal -->
-<div id="card{{ value }}" type="button">
+<div id="card{{ value }}" type="button" style="display: flex; justify-content: center;">
   <div
     class="flip-card"
     id="flipCard{{ value }}"
@@ -18,7 +18,7 @@
         </div>
         <div style="flex-grow: 4">
           <div>
-            <ng-content></ng-content>
+            <div id="clueText{{ value }}"></div>
           </div>
         </div>
         <div style="flex-grow: 1">
@@ -35,7 +35,7 @@
         </div>
         <div style="flex-grow: 4">
           <div>
-            <div>{{ answer }}</div>
+            <div id="answerText{{ value }}"></div>
           </div>
         </div>
         <div style="flex-grow: 1">
@@ -57,7 +57,7 @@
   class="modal"
 >
   <!-- Modal content -->
-  <div class="modal-content" style="position: relative; font-size: 24px">
+  <div class="modal-content" style="position: relative; font-size: 32px">
     <div class="close">
       <span (click)="handleSpanClose(value)" class="fas fa-times"></span>
     </div>
@@ -68,14 +68,33 @@
           <div class="category"></div>
         </div>
       </div>
-      <div style="flex-grow: 1">
+      <div style="flex-grow: 3">
         <div>
-          <div class="category"></div>
+          <textarea
+          type="text"
+          placeholder="Enter Clue Text Here..."
+          style="text-align: center"
+          (input)="handleClueTextChange(value)"
+          id="clueTextField{{ value }}"
+          autocomplete="off"
+        ></textarea>
         </div>
       </div>
       <div style="flex-grow: 1">
         <div>
-          <div class="category"></div>
+          <textarea
+          type="text"
+          placeholder="Enter Answer Text Here..."
+          style="text-align: center"
+          (input)="handleAnswerTextChange(value)"
+          id="answerTextField{{ value }}"
+          autocomplete="off"
+        ></textarea>
+        </div>
+      </div>
+      <div style="flex-grow: 1">
+        <div>
+          <div>${{ value }}</div>
         </div>
       </div>
     </div>
