@@ -12,11 +12,11 @@
   text-align: center;
 }
 
-#gameList > div {
+.list-item-wrapper {
   margin-bottom: 10px;
 }
 
-#gameList > div:last-of-type {
+.list-item-wrapper:last-of-type {
   margin-bottom: 0;
 }
 
@@ -35,12 +35,16 @@
   height: 50px;
 }
 
+.hidden {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
   #gameList {
     margin-bottom: 0;
   }
 
-  #gameList > div {
+  .list-item-wrapper {
     display: flex;
     justify-content: center;
   }
@@ -58,7 +62,7 @@
     margin: 0 0 15px 0;
   }
 
-  #gameList > div {
+  .list-item-wrapper {
     margin-bottom: 50px;
   }
 }

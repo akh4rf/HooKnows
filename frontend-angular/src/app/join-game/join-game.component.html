@@ -6,10 +6,12 @@
 
     <form action="" class="hk-section-row hk-game-search-form">
       <input
+        id="codeField"
         type="text"
         maxlength="6"
         placeholder="Room Code"
         autofocus
+        (input)="handleCodeUpdated()"
       />
       <main-button-form height="50px" width="120px">
         <p style="font-size: 20px">
@@ -22,10 +24,10 @@
       <div class="hk-join-game-header">
         <div>Host</div>
         <div>Code</div>
-        <div>Players</div>
+        <div style="position: relative;" (click)="sortByPlayers()">Players</div>
       </div>
       <div id="gameList">
-        <div *ngFor="let game of games">
+        <div class="list-item-wrapper" *ngFor="let game of games">
           <game-list-item
             username="{{ game.username }}"
             code="{{ game.code }}"
