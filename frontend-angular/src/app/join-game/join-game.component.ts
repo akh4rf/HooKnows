@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./join-game.component.css'],
 })
 export class JoinGameComponent implements OnInit {
+  hostSort:string = "none";
+  codeSort:string = "none";
+  playerSort:string = "none";
   handleCodeUpdated() {
     for (let item of this.getListItems()) {
       if (!this.getListItemCode(item).startsWith(this.getEnteredCode())) {
@@ -49,9 +52,54 @@ export class JoinGameComponent implements OnInit {
   }
 
   sortByPlayers() {
-    this.games.sort((game1: Game, game2: Game) => {
-      return game1.players < game2.players ? 1 : -1;
-    });
+    if(this.playerSort == "none" || this.playerSort == "ascending"){
+      this.games.sort((game1: Game, game2: Game) => {
+        return game1.players < game2.players ? 1 : -1;
+      });
+      this.playerSort = "descending";
+      this.codeSort = "none";
+      this.hostSort = "none";
+    }
+    else{
+      this.games.sort((game1: Game, game2: Game) => {
+        return game1.players > game2.players ? 1 : -1;
+      });
+      this.playerSort = "ascending";
+    }
+  }
+
+  sortByCode() {
+    if(this.codeSort == "none" || this.codeSort == "ascending"){
+      this.games.sort((game1: Game, game2: Game) => {
+        return game1.code < game2.code ? 1 : -1;
+      });
+      this.playerSort = "none";
+      this.codeSort = "descending";
+      this.hostSort = "none";
+    }
+    else{
+      this.games.sort((game1: Game, game2: Game) => {
+        return game1.players > game2.players ? 1 : -1;
+      });
+      this.codeSort = "ascending";
+    }
+  }
+
+  sortByHost() {
+    if(this.hostSort == "none" || this.hostSort == "ascending"){
+      this.games.sort((game1: Game, game2: Game) => {
+        return game1.username < game2.username ? 1 : -1;
+      });
+      this.playerSort = "none";
+      this.codeSort = "none";
+      this.hostSort = "descending";
+    }
+    else{
+      this.games.sort((game1: Game, game2: Game) => {
+        return game1.players > game2.players ? 1 : -1;
+      });
+      this.hostSort = "ascending";
+    }
   }
 
   games: Game[] = [];

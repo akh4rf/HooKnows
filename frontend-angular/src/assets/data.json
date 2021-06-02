@@ -9,8 +9,18 @@
         "code": "GHIJKL",
         "players": "1"
     },
+     {
+        "username": "zayn",
+        "code": "AABCDE",
+        "players": "1"
+    },
+     {
+        "username": "john_deer",
+        "code": "BABCDE",
+        "players": "1"
+    },
     {
-        "username": "jane_doe",
+        "username": "nolly",
         "code": "MNOPQR",
         "players": "2"
     }
