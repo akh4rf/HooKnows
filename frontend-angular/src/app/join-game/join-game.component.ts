@@ -51,55 +51,28 @@ export class JoinGameComponent implements OnInit {
     });
   }
 
-  sortByPlayers() {
-    if(this.playerSort == "none" || this.playerSort == "ascending"){
+  sortParams: Record<string,string> = {
+    "host" : "none",
+    "code" : "none",
+    "players" : "none"
+  };
+  sortGames(sort:string){
+    if(this.sortParams[sort] == "none" || this.sortParams[sort] == "ascending"){
       this.games.sort((game1: Game, game2: Game) => {
-        return game1.players < game2.players ? 1 : -1;
+        return game1[sort] < game2[sort] ? 1 : -1;
       });
-      this.playerSort = "descending";
-      this.codeSort = "none";
-      this.hostSort = "none";
+        for (let key in this.sortParams) {
+          this.sortParams[key] = "none";
+        }
+      this.sortParams[sort] = "descending";
     }
     else{
       this.games.sort((game1: Game, game2: Game) => {
-        return game1.players > game2.players ? 1 : -1;
+        return game1[sort] > game2[sort] ? 1 : -1;
       });
-      this.playerSort = "ascending";
+      this.sortParams[sort] = "ascending";
     }
-  }
 
-  sortByCode() {
-    if(this.codeSort == "none" || this.codeSort == "ascending"){
-      this.games.sort((game1: Game, game2: Game) => {
-        return game1.code < game2.code ? 1 : -1;
-      });
-      this.playerSort = "none";
-      this.codeSort = "descending";
-      this.hostSort = "none";
-    }
-    else{
-      this.games.sort((game1: Game, game2: Game) => {
-        return game1.players > game2.players ? 1 : -1;
-      });
-      this.codeSort = "ascending";
-    }
-  }
-
-  sortByHost() {
-    if(this.hostSort == "none" || this.hostSort == "ascending"){
-      this.games.sort((game1: Game, game2: Game) => {
-        return game1.username < game2.username ? 1 : -1;
-      });
-      this.playerSort = "none";
-      this.codeSort = "none";
-      this.hostSort = "descending";
-    }
-    else{
-      this.games.sort((game1: Game, game2: Game) => {
-        return game1.players > game2.players ? 1 : -1;
-      });
-      this.hostSort = "ascending";
-    }
   }
 
   games: Game[] = [];
@@ -111,8 +84,10 @@ export class JoinGameComponent implements OnInit {
   }
 }
 
+
 interface Game {
-  username: string;
+  host: string;
   code: string;
-  players: Number;
+  players: string;
+  [key : string]: string;
 }

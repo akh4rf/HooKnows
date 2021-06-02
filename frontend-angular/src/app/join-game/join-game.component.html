@@ -22,14 +22,14 @@
 
     <div class="hk-section-row">
       <div class="hk-join-game-header">
-        <div style="position: relative;" (click)="sortByHost()">Host</div>
-        <div style="position: relative;" (click)="sortByCode()">Code</div>
-        <div style="position: relative;" (click)="sortByPlayers()">Players</div>
+        <div style="position: relative;" (click)="sortGames('host')">Host</div>
+        <div style="position: relative;" (click)="sortGames('code')">Code</div>
+        <div style="position: relative;" (click)="sortGames('players')">Players</div>
       </div>
       <div id="gameList">
         <div class="list-item-wrapper" *ngFor="let game of games">
           <game-list-item
-            username="{{ game.username }}"
+            username="{{ game.host }}"
             code="{{ game.code }}"
             players="{{ game.players }}"
           ></game-list-item>

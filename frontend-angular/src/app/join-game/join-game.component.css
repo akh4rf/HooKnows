@@ -10,6 +10,7 @@
 
 .hk-join-game-header > div {
   text-align: center;
+  cursor : pointer;
 }
 
 .list-item-wrapper {

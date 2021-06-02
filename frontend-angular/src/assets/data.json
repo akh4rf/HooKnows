@@ -1,26 +1,26 @@
 [
     {
-        "username": "akh4rf",
+        "host": "akh4rf",
         "code": "ABCDEF",
         "players": "0"
     },
     {
-        "username": "john_doe",
+        "host": "john_doe",
         "code": "GHIJKL",
         "players": "1"
     },
      {
-        "username": "zayn",
+        "host": "zayn",
         "code": "AABCDE",
         "players": "1"
     },
      {
-        "username": "john_deer",
+        "host": "john_deer",
         "code": "BABCDE",
         "players": "1"
     },
     {
-        "username": "nolly",
+        "host": "nolly",
         "code": "MNOPQR",
         "players": "2"
     }
