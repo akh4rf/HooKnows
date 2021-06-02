@@ -12,38 +12,6 @@ export class FlipCardModalComponent implements OnInit {
   @Input() width!: string;
   @Input() value!: string;
 
-  handleClueTextChange(value: string) {
-    let clueTextDiv: HTMLElement = document.getElementById(
-      'clueText' + value
-    ) as HTMLElement;
-
-    let newClueText: string = (
-      document.getElementById('clueTextField' + value) as HTMLInputElement
-    ).value;
-
-    if (newClueText == '' || newClueText == null) {
-      newClueText = '​​';
-    }
-
-    clueTextDiv.innerHTML = newClueText;
-  }
-
-  handleAnswerTextChange(value: string) {
-    let answerTextDiv: HTMLElement = document.getElementById(
-      'answerText' + value
-    ) as HTMLElement;
-
-    let newAnswerText: string = (
-      document.getElementById('answerTextField' + value) as HTMLInputElement
-    ).value;
-
-    if (newAnswerText == '' || newAnswerText == null) {
-      newAnswerText = '​​';
-    }
-
-    answerTextDiv.innerHTML = newAnswerText;
-  }
-
   // When the user clicks on the button, open the modal
   handleButtonClick(value: string) {
     // Get the modal

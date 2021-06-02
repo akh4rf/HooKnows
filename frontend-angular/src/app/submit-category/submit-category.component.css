@@ -27,6 +27,38 @@ flip-card-modal {
   margin-bottom: 10px;
 }
 
+.category-form-text {
+  width: 100%;
+}
+
+.category-form-text > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*[id^="answerTextField"],
+*[id^="clueTextField"] {
+  height: 90%;
+  width: 90%;
+  color: var(--secondary);
+  background-color: var(--primary);
+  font-size: 32px;
+  border: dashed var(--secondary);
+  font: inherit;
+}
+
+#categoryField.ng-invalid.ng-touched {
+  border: solid red;
+}
+
+*[id^="answerTextField"].ng-invalid.ng-touched,
+*[id^="clueTextField"].ng-invalid.ng-touched {
+  border: dashed red;
+}
+
 @media only screen and (max-width: 1150px) {
   flip-card-modal {
     width: 100%;

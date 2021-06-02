@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Category } from './_models/category.model';
+import { Clue } from './_models/clue.model';
 
 @Component({
   selector: 'app-submit-category',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./submit-category.component.css'],
 })
 export class SubmitCategoryComponent implements OnInit {
+  values: number[] = [200, 400, 600, 800, 1000];
+
   handleCategoryNameChange() {
     this.updateFlipCards(this.getCategoryFieldText());
   }
@@ -30,6 +34,50 @@ export class SubmitCategoryComponent implements OnInit {
     return Array.from(
       document.getElementsByClassName('category')
     ) as HTMLElement[];
+  }
+
+  handleClueTextChange(value: number) {
+    let clueTextDiv: HTMLElement = document.getElementById(
+      'clueText' + value
+    ) as HTMLElement;
+
+    let newClueText: string = (
+      document.getElementById('clueTextField' + value) as HTMLInputElement
+    ).value;
+
+    if (newClueText == '' || newClueText == null) {
+      newClueText = '​​';
+    }
+
+    clueTextDiv.innerHTML = newClueText;
+  }
+
+  handleAnswerTextChange(value: number) {
+    let answerTextDiv: HTMLElement = document.getElementById(
+      'answerText' + value
+    ) as HTMLElement;
+
+    let newAnswerText: string = (
+      document.getElementById('answerTextField' + value) as HTMLInputElement
+    ).value;
+
+    if (newAnswerText == '' || newAnswerText == null) {
+      newAnswerText = '​​';
+    }
+
+    answerTextDiv.innerHTML = newAnswerText;
+  }
+
+  category = new Category('', [
+    new Clue('', '', 200),
+    new Clue('', '', 400),
+    new Clue('', '', 600),
+    new Clue('', '', 800),
+    new Clue('', '', 1000),
+  ]);
+
+  handleCategorySubmit() {
+    console.log(this.category);
   }
 
   constructor() {}
