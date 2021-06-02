@@ -37,7 +37,6 @@ export class JoinGameComponent implements OnInit {
   }
 
   getListItems() {
-    console.log(this.games);
     return Array.from(
       document.getElementsByClassName('list-item-wrapper')
     ) as HTMLElement[];

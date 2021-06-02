@@ -221,3 +221,7 @@ body {
 .hk-section-row {
   margin-top: 50px;
 }
+
+.display-none {
+  display: none;
+}

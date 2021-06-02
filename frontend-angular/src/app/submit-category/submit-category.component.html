@@ -4,57 +4,137 @@
       <p>Submit a Category!</p>
     </div>
 
-    <form action="">
-      <div class="hk-section-row" id="hk-submit-category-header">
-        <main-button height="50px" width="120px" dest="/">
-          <p style="font-size: 20px">
-            <span><i class="fas fa-times"></i></span> Cancel
-          </p>
-        </main-button>
-        <input
-          type="text"
-          placeholder="Category Name"
-          autofocus
-          style="font-size: 20px; text-align: center"
-          (input)="handleCategoryNameChange()"
-          id="categoryField"
-        />
-        <main-button-form height="50px" width="120px">
-          <p style="font-size: 20px">
-            <span><i class="fas fa-check"></i></span> Submit
-          </p>
-        </main-button-form>
+    <form
+      action="http://localhost:80/submit-category.php"
+      name="submitCategoryForm"
+      method="post"
+      #categoryForm="ngForm"
+      (ngSubmit)="handleCategorySubmit()"
+      novalidate
+    >
+      <div class="hk-section-row">
+        <div
+          style="
+            width: 100%;
+            font-size: 20px;
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+          "
+          [class.display-none]="categoryField.valid || categoryField.untouched"
+        >
+          Name is required.
+        </div>
+        <div id="hk-submit-category-header">
+          <main-button height="50px" width="120px" dest="/">
+            <p style="font-size: 20px">
+              <span><i class="fas fa-times"></i></span> Cancel
+            </p>
+          </main-button>
+          <input
+            type="text"
+            placeholder="Category Name"
+            autofocus
+            style="font-size: 20px; text-align: center"
+            (input)="handleCategoryNameChange()"
+            id="categoryField"
+            [(ngModel)]="category.name"
+            name="category-name"
+            required
+            #categoryField="ngModel"
+            [class.is-invalid]="categoryField.invalid"
+          />
+
+          <main-button-form height="50px" width="120px">
+            <p style="font-size: 20px">
+              <span><i class="fas fa-check"></i></span> Submit
+            </p>
+          </main-button-form>
+        </div>
       </div>
 
-      <div class="hk-section-row" id="hk-submit-category-content">
+      <div
+        class="hk-section-row"
+        id="hk-submit-category-content"
+        ngModelGroup="clues"
+      >
         <div>
           <flip-card-modal
+            *ngFor="let value of values"
+            ngModelGroup="clue-{{ value }}"
             height="200px"
             width="300px"
-            value="200"
-          ></flip-card-modal>
-          <flip-card-modal
-            height="200px"
-            width="300px"
-            value="400"
-          ></flip-card-modal>
-          <flip-card-modal
-            height="200px"
-            width="300px"
-            value="600"
-          ></flip-card-modal>
-          <flip-card-modal
-            height="200px"
-            width="300px"
-            value="800"
-          ></flip-card-modal>
-          <flip-card-modal
-            height="200px"
-            width="300px"
-            value="1000"
-          ></flip-card-modal>
+            value="{{ value }}"
+          >
+            <div
+              style="
+                width: 100%;
+                font-size: 20px;
+                color: red;
+                text-align: center;
+              "
+              [class.display-none]="
+                clueTextField_value.valid || clueTextField_value.untouched
+              "
+            >
+              Clue text is required.
+            </div>
+            <div class="category-form-text" style="flex-grow: 3">
+              <div>
+                <textarea
+                  type="text"
+                  placeholder="Enter Clue Text Here..."
+                  style="text-align: center"
+                  (input)="handleClueTextChange(value)"
+                  id="clueTextField{{ value }}"
+                  [(ngModel)]="category.clues[value / 200 - 1].text"
+                  name="clueTextField"
+                  autocomplete="off"
+                  required
+                  #clueTextField_value="ngModel"
+                  [class.is-invalid]="clueTextField_value.invalid"
+                ></textarea>
+              </div>
+            </div>
+            <div
+              style="
+                width: 100%;
+                font-size: 20px;
+                color: red;
+                text-align: center;
+              "
+              [class.display-none]="
+                answerTextField_value.valid || answerTextField_value.untouched
+              "
+            >
+              Clue answer is required.
+            </div>
+            <div class="category-form-text" style="flex-grow: 1">
+              <div>
+                <textarea
+                  type="text"
+                  placeholder="Enter Answer Text Here..."
+                  style="text-align: center"
+                  (input)="handleAnswerTextChange(value)"
+                  id="answerTextField{{ value }}"
+                  [(ngModel)]="category.clues[value / 200 - 1].answer"
+                  name="answerTextField"
+                  autocomplete="off"
+                  required
+                  #answerTextField_value="ngModel"
+                  [class.is-invalid]="answerTextField_value.invalid"
+                ></textarea>
+              </div>
+            </div>
+          </flip-card-modal>
         </div>
       </div>
     </form>
   </div>
 </div>
+
+<!--
+    {{ categoryForm.value | json }}
+    <br />
+    {{ category | json }}
+-->
