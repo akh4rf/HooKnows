@@ -11,9 +11,9 @@ import { HostGameComponent } from './host-game/host-game.component';
 import { JoinGameComponent } from './join-game/join-game.component';
 import { GameListItemComponent } from './game-list-item/game-list-item.component';
 import { SubmitCategoryComponent } from './submit-category/submit-category.component';
-import { MainButtonFormComponent } from './main-button-form/main-button-form.component';
 import { FlipCardModalComponent } from './flip-card-modal/flip-card-modal.component';
 import { AutofocusDirective } from './autofocus.directive';
+import { LoginRegisterComponent } from './login-register/login-register.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import { AutofocusDirective } from './autofocus.directive';
     JoinGameComponent,
     GameListItemComponent,
     SubmitCategoryComponent,
-    MainButtonFormComponent,
     FlipCardModalComponent,
     AutofocusDirective,
+    LoginRegisterComponent,
   ],
   imports: [
     BrowserModule,

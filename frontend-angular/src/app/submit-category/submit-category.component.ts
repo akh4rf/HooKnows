@@ -77,7 +77,14 @@ export class SubmitCategoryComponent implements OnInit {
   ]);
 
   handleCategorySubmit() {
-    console.log(this.category);
+    // Check if form is completed
+    let isValid: boolean = document
+      .getElementById('submitCategoryForm')
+      ?.classList.contains('ng-valid') as boolean;
+    // Only proceed if form is completed
+    if (isValid) {
+      console.log(this.category);
+    }
   }
 
   constructor() {}
