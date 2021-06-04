@@ -7,6 +7,7 @@
     <form
       action="http://localhost:80/submit-category.php"
       name="submitCategoryForm"
+      id="submitCategoryForm"
       method="post"
       #categoryForm="ngForm"
       (ngSubmit)="handleCategorySubmit()"
@@ -45,11 +46,41 @@
             [class.is-invalid]="categoryField.invalid"
           />
 
-          <main-button-form height="50px" width="120px">
-            <p style="font-size: 20px">
-              <span><i class="fas fa-check"></i></span> Submit
-            </p>
-          </main-button-form>
+          <div
+            id="submitButton"
+            style="display: flex; justify-content: center"
+            role="button"
+          >
+            <button
+              [class.submit-disabled]="categoryForm.invalid"
+              type="submit"
+              class="hk-btn-hover no-under"
+              style="
+                height: 50px;
+                width: 120px;
+                padding: 0;
+                border: 0;
+                background: var(--secondary);
+                cursor: pointer;
+              "
+            >
+              <div>
+                <div
+                  style="
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                  "
+                >
+                  <p style="font-size: 20px">
+                    <span><i class="fas fa-check"></i></span> Submit
+                  </p>
+                </div>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -65,6 +96,10 @@
             height="200px"
             width="300px"
             value="{{ value }}"
+            [class.is-invalid]="
+              (clueTextField_value.invalid && clueTextField_value.touched) ||
+              (answerTextField_value.invalid && answerTextField_value.touched)
+            "
           >
             <div
               style="
@@ -92,7 +127,6 @@
                   autocomplete="off"
                   required
                   #clueTextField_value="ngModel"
-                  [class.is-invalid]="clueTextField_value.invalid"
                 ></textarea>
               </div>
             </div>
@@ -122,7 +156,6 @@
                   autocomplete="off"
                   required
                   #answerTextField_value="ngModel"
-                  [class.is-invalid]="answerTextField_value.invalid"
                 ></textarea>
               </div>
             </div>

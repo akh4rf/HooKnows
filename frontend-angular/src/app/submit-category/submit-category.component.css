@@ -11,7 +11,7 @@
   order: 2;
 }
 
-#hk-submit-category-header > main-button-form {
+#hk-submit-category-header > #submitButton {
   order: 3;
 }
 
@@ -59,6 +59,25 @@ flip-card-modal {
   border: dashed red;
 }
 
+.submit-disabled {
+  background-color: var(--secondary);
+  border-radius: 10px;
+}
+
+.submit-disabled > div {
+  height: 100%;
+  width: 100%;
+  color: gray;
+  background-color: var(--primary);
+  border: 5px solid gray;
+  border-radius: 10px;
+  transition: transform 0.2s;
+}
+
+.submit-disabled > div:hover {
+  transform: none;
+}
+
 @media only screen and (max-width: 1150px) {
   flip-card-modal {
     width: 100%;
@@ -78,8 +97,5 @@ flip-card-modal {
   }
   #hk-submit-category-header > main-button {
     order: 2;
-  }
-  #hk-submit-category-header > main-button-form {
-    order: 3;
   }
 }

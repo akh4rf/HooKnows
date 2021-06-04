@@ -1,0 +1,30 @@
+.hk-login-button-wrapper {
+  height: 50px;
+  border: 5px solid var(--secondary);
+  color: var(--secondary);
+}
+
+.hk-login-content-wrapper {
+  height: 350px;
+  border: 5px solid var(--secondary);
+  border-top: 0;
+  position: relative;
+}
+
+#loginForm,
+#registerForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hk-login-content-form {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
