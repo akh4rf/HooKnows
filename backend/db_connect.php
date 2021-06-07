@@ -10,10 +10,13 @@
         $password = 'tSSMZjB0UtCmy79C';
         $host = 'localhost:3306';
         $dbname = 'hoo_knows';
+        // Allow requests from development and production domains
+        header('Access-Control-Allow-Origin: http://localhost:4200');
     }
     // Else, production
     else {
-        //
+        // Allow requests from development and production domains
+        header('Access-Control-Allow-Origin: http://hoo-knows.uk.r.appspot.com');
     }
 
     // Create DSN for PDO connection
@@ -41,9 +44,6 @@
         // echo "<p>Error message: $error_message </p>";
     }
 
-    // Allow requests from development and production domains
-    // http://hoo-knows.uk.r.appspot.com
-    header('Access-Control-Allow-Origin: http://localhost:4200');
     header('Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT');
     header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
     header('Access-Control-Max-Age: 1000');

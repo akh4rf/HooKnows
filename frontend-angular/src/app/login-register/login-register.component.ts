@@ -19,9 +19,23 @@ export class LoginRegisterComponent implements OnInit {
       to + 'Content'
     ) as HTMLElement;
 
+    let fromTab: HTMLElement = document.getElementById(from) as HTMLElement;
+    let toTab: HTMLElement = document.getElementById(to) as HTMLElement;
+
+    let tab: HTMLElement = document.getElementById(
+      'LoginRegisterTab'
+    ) as HTMLElement;
+
     if (toForm.classList.contains('display-none')) {
       toForm.classList.toggle('display-none');
       fromForm.classList.toggle('display-none');
+      tab.classList.toggle('right');
+      fromTab.classList.toggle('blue-text');
+      toTab.classList.toggle('blue-text');
+
+      if (!this.errorDiv.classList.contains('display-none')) {
+        this.errorDiv.classList.toggle('display-none');
+      }
     }
   }
 
@@ -31,7 +45,7 @@ export class LoginRegisterComponent implements OnInit {
       ?.classList.contains('ng-valid') as boolean;
     // Only proceed if form is completed
     if (isValid) {
-      this.service
+      this.backendService
         .post('http://localhost:80/login/login.php', JSON.stringify(this.user))
         .subscribe((data) => {
           if (data['Message'] == 'Successfully Logged In!') {
@@ -39,7 +53,7 @@ export class LoginRegisterComponent implements OnInit {
             sessionStorage.setItem('session_id', data['Data']['SESSION_ID']);
             this.router.navigate(['']);
           } else {
-            console.log(data['Message']);
+            this.updateErrorMessage(data['Message']);
           }
         });
     }
@@ -51,7 +65,7 @@ export class LoginRegisterComponent implements OnInit {
       ?.classList.contains('ng-valid') as boolean;
     // Only proceed if form is completed
     if (isValid) {
-      this.service
+      this.backendService
         .post(
           'http://localhost:80/register/register.php',
           JSON.stringify(this.user)
@@ -62,14 +76,28 @@ export class LoginRegisterComponent implements OnInit {
             sessionStorage.setItem('session_id', data['Data']['SESSION_ID']);
             this.router.navigate(['']);
           } else {
-            console.log(data['Message']);
+            this.updateErrorMessage(data['Message']);
           }
         });
       //
     }
   }
 
-  constructor(private service: BackendRequestService, private router: Router) {}
+  updateErrorMessage(message: string) {
+    this.errorDiv.innerText = message;
+    if (this.errorDiv.classList.contains('display-none')) {
+      this.errorDiv.classList.toggle('display-none');
+    }
+  }
+
+  errorDiv: HTMLElement = document.getElementById(
+    'errorMessage'
+  ) as HTMLElement;
+
+  constructor(
+    private backendService: BackendRequestService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     // Force redirect to main menu if session exists
@@ -80,6 +108,7 @@ export class LoginRegisterComponent implements OnInit {
       this.router.navigate(['']);
     } else {
       sessionStorage.clear();
+      this.errorDiv = document.getElementById('errorMessage') as HTMLElement;
     }
   }
 }

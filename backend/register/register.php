@@ -28,7 +28,7 @@
                                             $data_array['firstName'],
                                             $data_array['lastName']);
     // Execute statement
-    $result = create_user_execute($statement);
+    $result = execute($statement);
 
     // If successful, send data to frontend
     if ($result) {

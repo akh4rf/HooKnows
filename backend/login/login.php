@@ -26,7 +26,7 @@
                                             hash('sha512', $data_array['password']));
 
     // Execute search
-    $get_user_result = get_user_execute($get_user_statement);
+    $get_user_result = execute($get_user_statement);
 
     // If successful, attempt to update session values
     if ($get_user_statement->rowCount() > 0) {
@@ -35,7 +35,7 @@
         $login_user_statement = login_user_prepare($db, $data_array['username'], $SID, $expire_time);
 
         // Execute update
-        $login_user_result = login_user_execute($login_user_statement);
+        $login_user_result = execute($login_user_statement);
 
         // If update successful, send data to frontend
         if ($login_user_result) {

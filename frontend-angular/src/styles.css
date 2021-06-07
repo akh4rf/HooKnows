@@ -144,7 +144,7 @@ table {
 
 :root {
   --primary: #11149a;
-  --secondary: #ffcc00e3;
+  --secondary: #ffcc00;
   --tertiary: #ff3300;
 }
 
@@ -224,4 +224,8 @@ body {
 
 .display-none {
   display: none !important;
+}
+
+.blue-text {
+  color: var(--primary);
 }
