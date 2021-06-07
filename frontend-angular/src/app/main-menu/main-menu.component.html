@@ -35,9 +35,22 @@
           height="160px"
           width="160px"
           iconClasses="fas fa-user fa-4x"
-          dest="/{{fourthButtonDest}}"
+          dest="/{{ fourthButtonDest }}"
         >
-          <p style="margin-top: 10px; font-size: 20px">{{fourthButtonText}}</p>
+          <p style="margin-top: 10px; font-size: 20px">
+            {{ fourthButtonText }}
+          </p>
+        </main-button>
+      </div>
+      <div id="logout" class="display-none" style="margin-top: 50px">
+        <main-button
+          height="50px"
+          width="120px"
+          dest="/logout/{{ currentUser }}"
+        >
+          <p style="font-size: 20px">
+            <span><i class="fas fa-sign-out-alt"></i></span> Logout
+          </p>
         </main-button>
       </div>
     </div>

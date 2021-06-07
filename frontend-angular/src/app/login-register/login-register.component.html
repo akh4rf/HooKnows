@@ -1,3 +1,5 @@
+<!-- Login/Register Slider Inspired By http://jsfiddle.net/x87h1owb/ -->
+
 <div class="hk-content">
   <div style="padding: 50px 0">
     <div style="text-align: center; color: var(--secondary); font-size: 48px">
@@ -5,28 +7,28 @@
     </div>
 
     <div style="margin-top: 75px">
-      <div class="hk-login-button-wrapper">
-        <div
-          style="
-            height: 100%;
-            display: flex;
-            align-items: center;
-            text-align: center;
-          "
-        >
-          <div style="flex: 1" (click)="switchTabs('register', 'login')">
-            Login
-          </div>
-          <div style="flex: 1" (click)="switchTabs('login', 'register')">
-            Register
+      <div style="position: relative; height: 50px; width: 100%">
+        <div class="hk-login-button-wrapper">
+          <div>
+            <div
+              id="login"
+              class="blue-text"
+              (click)="switchTabs('register', 'login')"
+            >
+              <div>Login</div>
+            </div>
+            <div id="register" (click)="switchTabs('login', 'register')">
+              <div>Register</div>
+            </div>
           </div>
         </div>
+        <div id="LoginRegisterTab"></div>
       </div>
       <div class="hk-login-content-wrapper">
+        <div id="errorMessage" class="display-none">ERROR MESSAGE</div>
         <div id="loginContent" class="hk-login-content-form">
           <div>
             <form
-              action=""
               name="loginForm"
               id="loginForm"
               #loginForm="ngForm"
@@ -39,7 +41,6 @@
                 placeholder="Enter Username"
                 name="usernameFieldLogin"
                 id="usernameFieldLogin"
-                style="font-size: 20px; text-align: center; margin-bottom: 20px"
                 [(ngModel)]="user.username"
                 #usernameFieldLogin="ngModel"
                 [class.is-invalid]="usernameFieldLogin.invalid"
@@ -51,7 +52,6 @@
                 placeholder="Enter Password"
                 name="passwordFieldLogin"
                 id="passwordFieldLogin"
-                style="font-size: 20px; text-align: center; margin-bottom: 20px"
                 [(ngModel)]="user.password"
                 #passwordFieldLogin="ngModel"
                 [class.is-invalid]="passwordFieldLogin.invalid"
@@ -61,15 +61,6 @@
                 [class.submit-disabled]="loginForm.invalid"
                 type="submit"
                 class="hk-btn-hover no-under"
-                style="
-                  height: 50px;
-                  width: 120px;
-                  padding: 0;
-                  border: 0;
-                  background: var(--secondary);
-                  cursor: pointer;
-                  margin-bottom: 20px;
-                "
               >
                 <div>
                   <div
@@ -96,7 +87,6 @@
         <div id="registerContent" class="hk-login-content-form display-none">
           <div>
             <form
-              action=""
               name="registerForm"
               id="registerForm"
               #registerForm="ngForm"
@@ -109,7 +99,6 @@
                 placeholder="Enter First Name"
                 name="firstNameField"
                 id="firstNameField"
-                style="font-size: 20px; text-align: center; margin-bottom: 20px"
                 [(ngModel)]="user.firstName"
                 #firstNameField="ngModel"
                 [class.is-invalid]="firstNameField.invalid"
@@ -121,7 +110,6 @@
                 placeholder="Enter Last Name"
                 name="lastNameField"
                 id="lastNameField"
-                style="font-size: 20px; text-align: center; margin-bottom: 20px"
                 [(ngModel)]="user.lastName"
                 #lastNameField="ngModel"
                 [class.is-invalid]="lastNameField.invalid"
@@ -133,7 +121,6 @@
                 placeholder="Enter Username"
                 name="usernameFieldRegister"
                 id="usernameFieldRegister"
-                style="font-size: 20px; text-align: center; margin-bottom: 20px"
                 [(ngModel)]="user.username"
                 #usernameFieldRegister="ngModel"
                 [class.is-invalid]="usernameFieldRegister.invalid"
@@ -145,7 +132,6 @@
                 placeholder="Enter Password"
                 name="passwordFieldRegister"
                 id="passwordFieldRegister"
-                style="font-size: 20px; text-align: center; margin-bottom: 20px"
                 [(ngModel)]="user.password"
                 #passwordFieldRegister="ngModel"
                 [class.is-invalid]="passwordFieldRegister.invalid"
@@ -155,15 +141,6 @@
                 [class.submit-disabled]="registerForm.invalid"
                 type="submit"
                 class="hk-btn-hover no-under"
-                style="
-                  height: 50px;
-                  width: 120px;
-                  padding: 0;
-                  border: 0;
-                  background: var(--secondary);
-                  cursor: pointer;
-                  margin-bottom: 20px;
-                "
               >
                 <div>
                   <div

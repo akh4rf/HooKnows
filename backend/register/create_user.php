@@ -1,5 +1,5 @@
 <?php
-    function create_user_execute($statement) {
+    function execute($statement) {
 
         // Execute the statement in the database
         $result = $statement->execute();

@@ -1,16 +1,15 @@
 <?php
 
-    function login_user_prepare($db, $username, $session_id, $expire_time) {
+    function logout_user_prepare($db, $username, $expire_time) {
 
         // Create query, use colon syntax to indicate placeholders that must be filled in
-        $query = "UPDATE `users` SET `session_id` = :session_id, `session_expiration` = :expire_time WHERE `users`.`username` = :username";
+        $query = "UPDATE `users` SET `session_expiration` = :expire_time WHERE `users`.`username` = :username";
 
         // Prepare the statement for execution
         $statement = $db->prepare($query);
 
         // Bind values to placeholders
         $statement->bindValue(':username', $username);
-        $statement->bindValue(':session_id', $session_id);
         $statement->bindValue(':expire_time', $expire_time);
 
         // Return prepared statement
@@ -18,16 +17,15 @@
 
     }
 
-    function get_user_prepare($db, $username, $password) {
+    function get_user_prepare($db, $username) {
         // Create query, use colon syntax to indicate placeholders that must be filled in
-        $query = "SELECT * FROM `users` WHERE `users`.`username` = :username AND `users`.`password` = :password";
+        $query = "SELECT * FROM `users` WHERE `users`.`username` = :username";
 
         // Prepare the statement for execution
         $statement = $db->prepare($query);
 
         // Bind values to placeholders
         $statement->bindValue(':username', $username);
-        $statement->bindValue(':password', $password);
 
         // Return prepared statement
         return $statement;

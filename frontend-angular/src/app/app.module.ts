@@ -14,6 +14,7 @@ import { SubmitCategoryComponent } from './submit-category/submit-category.compo
 import { FlipCardModalComponent } from './flip-card-modal/flip-card-modal.component';
 import { AutofocusDirective } from './autofocus.directive';
 import { LoginRegisterComponent } from './login-register/login-register.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
     FlipCardModalComponent,
     AutofocusDirective,
     LoginRegisterComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
