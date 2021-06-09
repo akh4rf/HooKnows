@@ -1,0 +1,9 @@
+.hk-main-menu-content {
+  padding: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .hk-main-menu-content {
+    padding: 50px 0;
+  }
+}
