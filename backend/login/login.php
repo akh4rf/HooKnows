@@ -39,7 +39,7 @@
 
         // If update successful, send data to frontend
         if ($login_user_result) {
-            $user_data = array("SESSION_ID" => $SID, "username" => $data_array['username']);
+            $user_data = array("SESSION_ID" => $SID, "username" => $data_array['username'], "expiration" => $dt->getTimestamp());
             $return = array("Message" => "Successfully Logged In!", "Data" => $user_data);
             echo json_encode($return);
         }

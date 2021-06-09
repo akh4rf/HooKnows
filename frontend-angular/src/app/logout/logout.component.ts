@@ -21,7 +21,7 @@ export class LogoutComponent implements OnInit {
   handleLogout(username: string) {
     this.backendService
       .post(
-        'http://localhost:80/logout/logout.php',
+        this.backendService.getPHPBaseURL() + 'logout/logout.php',
         JSON.stringify({ username: username })
       )
       .subscribe((data) => {

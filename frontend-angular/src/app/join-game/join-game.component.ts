@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BackendRequestService } from '../backend-request.service';
+import { SessionDetailsService } from '../session-details.service';
 
 @Component({
   selector: 'join-game',
@@ -78,9 +79,14 @@ export class JoinGameComponent implements OnInit {
 
   games: Game[] = [];
 
-  constructor(private service: BackendRequestService) {}
+  constructor(
+    private service: BackendRequestService,
+    private sessionDetails: SessionDetailsService
+  ) {}
 
   ngOnInit(): void {
+    // Force redirect to login if session is invalid
+    this.sessionDetails.checkValidSession();
     this.getGamesFromDB();
   }
 }

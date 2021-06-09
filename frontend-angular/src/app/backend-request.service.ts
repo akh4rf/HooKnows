@@ -6,6 +6,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class BackendRequestService {
+  getPHPBaseURL() {
+    if (
+      location.hostname === 'localhost' ||
+      location.hostname === '127.0.0.1'
+    ) {
+      return 'http://localhost:80/';
+    } else {
+      return 'http://hoo-knows-backend.uk.r.appspot.com/';
+    }
+  }
+
   get(dest: string): Observable<any> {
     return this.client.get(dest);
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionDetailsService } from '../session-details.service';
 import { Category } from './_models/category.model';
 import { Clue } from './_models/clue.model';
 
@@ -87,9 +88,11 @@ export class SubmitCategoryComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(private sessionDetails: SessionDetailsService) {}
 
   ngOnInit() {
+    // Force redirect to login if session is invalid
+    this.sessionDetails.checkValidSession();
     this.updateFlipCards('Category Name');
   }
 }
