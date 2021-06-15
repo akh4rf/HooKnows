@@ -29,6 +29,7 @@ export class LogoutComponent implements OnInit {
           sessionStorage.clear();
         } else {
           console.log(data);
+          sessionStorage.clear();
         }
       });
   }

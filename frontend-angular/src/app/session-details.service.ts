@@ -20,27 +20,38 @@ export class SessionDetailsService {
     }
   }
 
-  checkValidSession() {
+  getSessionStatus() {
     let isLoggedIn = this.isLoggedIn();
     let notExpired =
       Math.floor(Date.now() / 1000) <
       parseInt(sessionStorage.getItem('expiration') as string);
 
-    // Valid Session
     if (isLoggedIn && notExpired) {
-      return true;
+      return 1;
+    } else if (isLoggedIn && !notExpired) {
+      return 2;
+    } else {
+      return 3;
+    }
+  }
+
+  checkValidSession() {
+    let message = '';
+    switch (this.getSessionStatus()) {
+      case 1:
+        message = 'valid_session';
+        break;
+      case 2:
+        message = 'session_expired';
+        break;
+      case 3:
+        message = 'login_required';
+        break;
     }
 
-    // Invalid Session
-    else {
-      let message = 'login_required';
-      if (isLoggedIn && !notExpired) {
-        message = 'session_expired';
-      }
-      sessionStorage.clear();
-      this.router.navigate(['/login-register/' + message]);
-      return false;
-    }
+    sessionStorage.clear();
+    this.router.navigate(['/login-register/' + message]);
+    return false;
   }
 
   constructor(private router: Router) {}

@@ -37,9 +37,17 @@
           iconClasses="fas fa-user fa-4x"
           dest="/{{ fourthButtonDest }}"
         >
-          <p style="margin-top: 10px; font-size: 20px">
-            {{ fourthButtonText }}
+          <p
+            *ngIf="sessionStatus == 1; else elseBlock"
+            style="margin-top: 10px; font-size: 20px"
+          >
+            Profile
           </p>
+          <ng-template #elseBlock>
+            <p [ngStyle]="{ 'margin-top.px': 10, 'font-size.px': 20 }">
+              Login/Register
+            </p>
+          </ng-template>
         </main-button>
       </div>
       <div style="margin-top: 50px">
@@ -56,7 +64,7 @@
           dest="/logout/{{ currentUser }}"
         >
           <p style="font-size: 20px">
-            <span><i class="fas fa-sign-out-alt"></i></span> Logout
+            <span><i [ngClass]="'fas fa-sign-out-alt'"></i></span> Logout
           </p>
         </main-button>
       </div>
