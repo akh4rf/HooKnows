@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BackendRequestService } from '../backend-request.service';
 import { SessionDetailsService } from '../session-details.service';
 import { Category } from './_models/category.model';
 import { Clue } from './_models/clue.model';
@@ -69,7 +71,7 @@ export class SubmitCategoryComponent implements OnInit {
     answerTextDiv.innerHTML = newAnswerText;
   }
 
-  category = new Category('', [
+  category = new Category(sessionStorage.getItem('user_id') as string, '', [
     new Clue('', '', 200),
     new Clue('', '', 400),
     new Clue('', '', 600),
@@ -84,11 +86,27 @@ export class SubmitCategoryComponent implements OnInit {
       ?.classList.contains('ng-valid') as boolean;
     // Only proceed if form is completed
     if (isValid) {
-      console.log(this.category);
+      this.backendService
+        .post(
+          this.backendService.getPHPBaseURL() +
+            'submit-category/submit-category.php',
+          JSON.stringify(this.category)
+        )
+        .subscribe((data) => {
+          if (data['Message'] == 'Success!') {
+            this.router.navigate(['']);
+          } else {
+            console.log(data);
+          }
+        });
     }
   }
 
-  constructor(private sessionDetails: SessionDetailsService) {}
+  constructor(
+    private sessionDetails: SessionDetailsService,
+    private backendService: BackendRequestService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     // Force redirect to login if session is invalid

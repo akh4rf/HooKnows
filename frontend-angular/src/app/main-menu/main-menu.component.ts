@@ -8,21 +8,22 @@ import { SessionDetailsService } from '../session-details.service';
 })
 export class MainMenuComponent implements OnInit {
   fourthButtonDest = '';
-  fourthButtonText = '';
   currentUser = '';
 
   constructor(private sessionDetails: SessionDetailsService) {}
 
+  sessionStatus = 0;
+
   ngOnInit(): void {
     // Check if logged in
-    if (this.sessionDetails.isLoggedIn()) {
+    this.sessionStatus = this.sessionDetails.getSessionStatus();
+    if (this.sessionStatus == 1) {
       this.fourthButtonDest = '/profile';
-      this.fourthButtonText = 'Profile';
       this.currentUser = this.sessionDetails.getCurrentUser();
       document.getElementById('logout')?.classList.toggle('display-none');
     } else {
+      sessionStorage.clear();
       this.fourthButtonDest = '/login-register';
-      this.fourthButtonText = 'Login/Register';
     }
   }
 }
